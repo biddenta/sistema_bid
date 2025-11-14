@@ -13,7 +13,13 @@ echo "PYTHONPATH: $PYTHONPATH"
 
 # Verificar Python e pacotes
 echo "Python version: $(python --version)"
+echo "Python path: $(which python)"
 echo "Pip version: $(pip --version)"
+
+# Forçar instalação de dependências
+echo "Instalando dependências..."
+pip install --upgrade pip
+pip install -r requirements.txt --no-cache-dir --force-reinstall uvicorn gunicorn fastapi
 
 # Verificar se api/__init__.py existe
 if [ ! -f "api/__init__.py" ]; then
@@ -30,15 +36,22 @@ ls -la api/
 
 # Verificar se o banco de dados existe
 if [ ! -f "match_crew.db" ]; then
-    echo "Banco de dados não encontrado. Aplicação pode falhar."
+    echo "⚠️  Banco de dados não encontrado. Aplicação pode falhar."
 fi
+
+# Verificar módulos instalados
+echo "Verificando módulos críticos..."
+python -c "import uvicorn; print(f'✅ uvicorn {uvicorn.__version__}')" || echo "❌ uvicorn não instalado"
+python -c "import fastapi; print(f'✅ fastapi {fastapi.__version__}')" || echo "❌ fastapi não instalado"
+python -c "import gunicorn; print(f'✅ gunicorn instalado')" || echo "❌ gunicorn não instalado"
 
 # Testar importação do módulo
 echo "Testando importação do módulo api..."
-python -c "import api.app; print('Módulo api.app importado com sucesso')" || {
+python -c "import sys; sys.path.insert(0, '$WORKDIR'); import api.app; print('✅ Módulo api.app importado com sucesso')" || {
     echo "❌ ERRO ao importar api.app"
-    echo "Tentando corrigir..."
-    pip install -r requirements.txt --no-cache-dir
+    echo "Python path:"
+    python -c "import sys; print('\n'.join(sys.path))"
+    exit 1
 }
 
 # Calcular workers baseado em CPUs (recomendação: 2*CPU + 1)
