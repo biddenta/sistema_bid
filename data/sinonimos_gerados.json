@@ -1,0 +1,12 @@
+{
+  "resina": [
+    "composite",
+    "fotopolimerizavel"
+  ],
+  "anestesico": [
+    "lidocaina"
+  ],
+  "broca": [
+    "fresa"
+  ]
+}

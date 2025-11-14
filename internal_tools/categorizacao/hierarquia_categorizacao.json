@@ -1,0 +1,226 @@
+{
+  "Dentista": {
+    "Anestésicos e Agulha Gengival": [
+      "Agulha Gengival",
+      "Anestésico Injetável",
+      "Anestésico Tópico",
+      "Seringas para Anestesia"
+    ],
+    "Biossegurança": [
+      "Caixas para Esterilização",
+      "Desinfetantes e Esterilizantes",
+      "Embalagem para Esterilização",
+      "Equipamentos de Proteção Individual (EPIs)",
+      "Equipamentos para Esterilização",
+      "Gerenciamento de Resíduos",
+      "Higienizadores e Antissépticos",
+      "Indicador para Esterilização"
+    ],
+    "Cimentos": [
+      "Cimento Endodôntico",
+      "Cimento para Cimentação Definitiva",
+      "Cimento para Forramento",
+      "Cimentos Cirúrgicos",
+      "Cimentos Endodônticos",
+      "Cimentos Provisórios",
+      "Cimentos para Cimentação Definitiva",
+      "Cimentos para Forramento",
+      "Cimentos para Restauração"
+    ],
+    "Cirurgia e Periodontia": [
+      "Acessórios para Cirurgia e Periodontia",
+      "Antissépticos e Medicamentos",
+      "Brocas e Pontas Cirúrgicas",
+      "Curativos",
+      "Instrumentais Cirúrgicos",
+      "Instrumentais Periodontais",
+      "Kits e Conjuntos Cirúrgicos",
+      "Materiais Hemostáticos",
+      "Suturas e Materiais para Fechamento"
+    ],
+    "Consultorio Odontológico": [
+      "Acessórios para Equipamentos",
+      "Equipamentos Odontológicos Principais",
+      "Manutenção e Peças de Reposição",
+      "Mobiliário Odontológico"
+    ],
+    "Dentística e Estética": [
+      "Acabamento e Polimento",
+      "Acessórios para Dentística",
+      "Adesivos Odontológicos",
+      "Afastadores e Abridores",
+      "Clareadores Dentais",
+      "Condicionadores Ácido",
+      "Ionômero de Vidro",
+      "Materiais para Controle de Cárie",
+      "Resina Composta",
+      "Resinas Compostas",
+      "Sistemas de Matriz"
+    ],
+    "Descartáveis": [
+      "Barreiras de Proteção",
+      "Descartáveis para Laboratório",
+      "Embalagens e Armazenamento",
+      "Produtos para Paciente",
+      "Produtos para Procedimentos",
+      "Sugadores e Aspiração"
+    ],
+    "Endodontia": [
+      "Acessórios para Endodontia",
+      "Brocas Endo",
+      "Equipamentos para Endodontia",
+      "Instrumentais Endodônticos",
+      "Instrumentos Endodônticos",
+      "Irrigação e Aspiração",
+      "Limas Endodônticas",
+      "Materiais Obturadores",
+      "Materiais para Isolamento",
+      "Medicamentos Endodônticos"
+    ],
+    "Equipamentos e Peças de Mão": [
+      "Canetas de Alta Rotação",
+      "Equipamentos para Consultório",
+      "Equipamentos para Diagnóstico",
+      "Fotopolimerizadores",
+      "Localizadores Apicais",
+      "Micromotores e Contra-Ângulos",
+      "Motores Elétricos e Pneumáticos",
+      "Peças Retas",
+      "Sistemas Ultrassônicos e Sônicos"
+    ],
+    "Harmonização Orofacial": [
+      "Acessórios para Harmonização Orofacial",
+      "Bioestimuladores de Colágeno",
+      "Dermocosméticos",
+      "Equipamentos para HOF",
+      "Fios de Sustentação",
+      "Instrumentais para HOF",
+      "Preenchedores Faciais",
+      "Produtos para Pós-Procedimento",
+      "Toxina Botulínica"
+    ],
+    "Higiene Oral": [
+      "Cremes Dentais",
+      "Enxaguantes Bucais",
+      "Escovas Dentais",
+      "Escovas Interdentais",
+      "Fios e Fitas Dentais",
+      "Produtos para Próteses"
+    ],
+    "Implantodontia": [
+      "Antissépticos e Medicamentos",
+      "Biomateriais e Regeneração Óssea",
+      "Componente Protético",
+      "Componentes Protéticos",
+      "Implantes",
+      "Instrumentais para Implantodontia",
+      "Kits para Implantodontia"
+    ],
+    "Material de Escritório": [
+      "Escritório",
+      "Higiene e Limpeza"
+    ],
+    "Moda e Vestuário": [
+      "Acessórios",
+      "Scrubs e Jalecos"
+    ],
+    "Ortodontia": [
+      "Acessórios Ortodônticos",
+      "Acessórios para Colagem",
+      "Aparelhos Funcionais",
+      "Bandas e Tubos",
+      "Bráquetes",
+      "Elásticos e Ligaduras",
+      "Fios Ortodônticos",
+      "Instrumentos Ortodônticos",
+      "Materiais para Contenção"
+    ],
+    "Prevenção e Profilaxia": [
+      "Equipamentos para Profilaxia",
+      "Flúor e Remineralizantes",
+      "Instrumentos para Profilaxia",
+      "Materiais para Controle de Cárie",
+      "Pastas e Géis Profiláticos",
+      "Produtos para Revelação de Placa",
+      "Selantes e Vernizes"
+    ],
+    "Prótese Clínica e Reabilitação Oral": [
+      "Instrumentos para Prótese",
+      "Materiais para Ajuste e Acabamento",
+      "Materiais para Caracterização",
+      "Materiais para Moldagem",
+      "Materiais para Provisórios",
+      "Materiais para Reembasamento",
+      "Pastas e Géis Profiláticos"
+    ]
+  },
+  "Laboratório": {
+    "Cerâmicas": [
+      "Acessórios para Cerâmica",
+      "Cerâmicas Feldspáticas"
+    ],
+    "Dentes Artificiais": [
+      "Dentes de Resina Acrílica"
+    ],
+    "Dentística e Estética": [
+      "Acabamento e Polimento"
+    ],
+    "Descartáveis": [
+      "Descartáveis para Laboratório"
+    ],
+    "Equipamentos Laboratório": [
+      "Equipamentos para Fundição",
+      "Equipamentos para Moldagem e Modelos",
+      "Equipamentos para Polimento e Acabamento",
+      "Equipamentos para Prótese Removível"
+    ],
+    "Equipamentos para Laboratório": [
+      "Equipamentos para Fundição",
+      "Equipamentos para Moldagem e Modelos",
+      "Equipamentos para Polimento e Acabamento",
+      "Equipamentos para Prótese Removível",
+      "Fornos e Equipamentos para Cerâmica",
+      "Instrumentos de Medição e Precisão"
+    ],
+    "Gessos e Revestimentos": [
+      "Acessórios para Gesso e Revestimento",
+      "Gessos Odontológicos"
+    ],
+    "Instrumentos e Ferramentas": [
+      "Articuladores e Acessórios",
+      "Espátulas e Instrumentos para Gesso",
+      "Instrumentos para Cerâmica",
+      "Instrumentos para Escultura",
+      "Instrumentos para Prótese Removível",
+      "Pincéis"
+    ],
+    "Materiais para Acabamento e Polimento": [
+      "Brocas e Fresas",
+      "Discos e Rodas",
+      "Polidores"
+    ],
+    "Materiais para Moldagem e Duplicação": [
+      "Silicones de Laboratório"
+    ],
+    "Resinas e Polímeros": [
+      "Materiais Termoplásticos",
+      "Resinas Acrílicas",
+      "Resinas Compostas"
+    ],
+    "Solução Digital": [
+      "Impressão 3D",
+      "Materiais para Fresagem",
+      "Scanner",
+      "Sistemas CAD/CAM"
+    ]
+  },
+  "Radiologia": {
+    "Imagem e Radiologia": [
+      "Acessórios para Radiologia",
+      "Equipamentos para Fotografia",
+      "Filmes Radiográficos",
+      "Processamento de Filmes",
+      "Proteção Radiológica"
+    ]
+  }
+}

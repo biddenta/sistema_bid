@@ -1,0 +1,137 @@
+[
+  {
+    "palavra1": "ortodontia",
+    "palavra2": "endodontia",
+    "motivo": "exclusao_explicita_ortodontia != endodontia",
+    "confianca": 0.95,
+    "timestamp": "2025-10-31T13:53:55.711874",
+    "match_origem": "4",
+    "tipo": "exclusao_explicita"
+  },
+  {
+    "palavra1": "resina",
+    "palavra2": "forma",
+    "motivo": "ortodontia != endodontia",
+    "confianca": 0.7,
+    "timestamp": "2025-10-31T13:53:55.711874",
+    "match_origem": "4",
+    "tipo": "exclusao_inferida"
+  },
+  {
+    "palavra1": "resina",
+    "palavra2": "ultradent",
+    "motivo": "ortodontia != endodontia",
+    "confianca": 0.7,
+    "timestamp": "2025-10-31T13:53:55.711874",
+    "match_origem": "4",
+    "tipo": "exclusao_inferida"
+  },
+  {
+    "palavra1": "forma",
+    "palavra2": "ultradent",
+    "motivo": "ortodontia != endodontia",
+    "confianca": 0.7,
+    "timestamp": "2025-10-31T13:53:55.711874",
+    "match_origem": "4",
+    "tipo": "exclusao_inferida"
+  },
+  {
+    "palavra1": "resina",
+    "palavra2": "anestesico",
+    "motivo": "exclusao_explicita_resina diferente de anestesico",
+    "confianca": 0.95,
+    "timestamp": "2025-10-31T13:53:55.713378",
+    "match_origem": "5",
+    "tipo": "exclusao_explicita"
+  },
+  {
+    "palavra1": "tamborel",
+    "palavra2": "endometric",
+    "motivo": "resina diferente de anestesico",
+    "confianca": 0.7,
+    "timestamp": "2025-10-31T13:53:55.713378",
+    "match_origem": "5",
+    "tipo": "exclusao_inferida"
+  },
+  {
+    "palavra1": "tamborel",
+    "palavra2": "angelus",
+    "motivo": "resina diferente de anestesico",
+    "confianca": 0.7,
+    "timestamp": "2025-10-31T13:53:55.713378",
+    "match_origem": "5",
+    "tipo": "exclusao_inferida"
+  },
+  {
+    "palavra1": "endométric",
+    "palavra2": "tamborel",
+    "motivo": "resina diferente de anestesico",
+    "confianca": 0.7,
+    "timestamp": "2025-10-31T13:53:55.713378",
+    "match_origem": "5",
+    "tipo": "exclusao_inferida"
+  },
+  {
+    "palavra1": "endométric",
+    "palavra2": "endometric",
+    "motivo": "resina diferente de anestesico",
+    "confianca": 0.7,
+    "timestamp": "2025-10-31T13:53:55.713378",
+    "match_origem": "5",
+    "tipo": "exclusao_inferida"
+  },
+  {
+    "palavra1": "endométric",
+    "palavra2": "angelus",
+    "motivo": "resina diferente de anestesico",
+    "confianca": 0.7,
+    "timestamp": "2025-10-31T13:53:55.713378",
+    "match_origem": "5",
+    "tipo": "exclusao_inferida"
+  },
+  {
+    "palavra1": "angelus",
+    "palavra2": "endometric",
+    "motivo": "resina diferente de anestesico",
+    "confianca": 0.7,
+    "timestamp": "2025-10-31T13:53:55.713378",
+    "match_origem": "5",
+    "tipo": "exclusao_inferida"
+  },
+  {
+    "palavra1": "protese",
+    "palavra2": "implante",
+    "motivo": "exclusao_explicita_protese != implante",
+    "confianca": 0.95,
+    "timestamp": "2025-10-31T13:53:55.714382",
+    "match_origem": "6",
+    "tipo": "exclusao_explicita"
+  },
+  {
+    "palavra1": "retrator",
+    "palavra2": "retraflex",
+    "motivo": "protese != implante",
+    "confianca": 0.7,
+    "timestamp": "2025-10-31T13:53:55.714382",
+    "match_origem": "6",
+    "tipo": "exclusao_inferida"
+  },
+  {
+    "palavra1": "retrator",
+    "palavra2": "biodinâmica",
+    "motivo": "protese != implante",
+    "confianca": 0.7,
+    "timestamp": "2025-10-31T13:53:55.714382",
+    "match_origem": "6",
+    "tipo": "exclusao_inferida"
+  },
+  {
+    "palavra1": "retraflex",
+    "palavra2": "biodinâmica",
+    "motivo": "protese != implante",
+    "confianca": 0.7,
+    "timestamp": "2025-10-31T13:53:55.714382",
+    "match_origem": "6",
+    "tipo": "exclusao_inferida"
+  }
+]

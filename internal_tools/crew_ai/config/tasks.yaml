@@ -1,0 +1,483 @@
+# ===== TAREFAS DA EQUIPE DE TRATAMENTO DE DADOS =====
+
+coordenacao_inicial:
+  description: >
+    Consultar o banco de dados produtos.db para extrair uma amostra de produtos 
+    que precisam ser processados e unificados. Avaliar a qualidade e completude 
+    dos dados no banco, identificar produtos com informações faltantes ou 
+    inconsistentes. Decidir se será necessário acionar o agente de scraping 
+    Selenium para atualizar dados. Coordenar o fluxo entre os demais agentes.
+    
+    Use a ferramenta Database Products Tool para:
+    1. Consultar produtos da tabela 'produtos' com filtros específicos
+    2. Identificar produtos com campos vazios ou problemáticos  
+    3. Gerar estatísticas de qualidade dos dados
+    
+    Os filtros de busca, sites alvo e limite de produtos serão fornecidos 
+    nos inputs da execução da tarefa.
+  expected_output: >
+    Um relatório de coordenação contendo:
+    - Estatísticas do banco de dados (total produtos, sites, marcas)
+    - Lista de produtos selecionados para processamento
+    - Identificação de campos faltantes ou inconsistentes
+    - Decisão sobre necessidade de scraping adicional
+    - Planning de distribuição de tarefas para os demais agentes
+    - Critérios de priorização dos produtos
+  agent: coordenador_dados
+
+# ===== TAREFAS ESPECIALIZADAS DE ANÁLISE (RAMIFICAÇÃO) =====
+
+analise_nomes_produtos:
+  description: >
+    Analisar especificamente os nomes dos produtos selecionados do banco de dados. 
+    Aplicar técnicas de processamento de linguagem natural para limpar, normalizar 
+    e padronizar os nomes. Identificar elementos essenciais vs descrições marketing, 
+    remover caracteres especiais desnecessários e criar versões padronizadas.
+    
+    Use a ferramenta Database Products Tool para:
+    1. Buscar nomes de produtos dos itens selecionados
+    2. Analisar padrões de nomenclatura por site
+    3. Identificar variações e inconsistências nos nomes
+    
+    Focar em: limpeza de nomes, remoção de ruído, padronização semântica.
+  expected_output: >
+    Relatório de análise de nomes contendo:
+    - Lista de nomes originais vs nomes padronizados
+    - Identificação de padrões de nomenclatura por site
+    - Elementos removidos (ruído marketing, caracteres especiais)
+    - Score de qualidade dos nomes (completude, clareza)
+    - Sugestões de melhorias para nomes problemáticos
+    - Versões normalizadas prontas para matching
+  agent: analista_nomes
+
+analise_marcas_produtos:
+  description: >
+    Analisar especificamente as marcas dos produtos selecionados. Identificar 
+    variações de grafia, apelidos comerciais, abreviações e criar mapeamento 
+    para nomes oficiais das marcas. Detectar inconsistências e propor 
+    padronizações que mantenham a identidade da marca.
+    
+    Use a ferramenta Database Products Tool para:
+    1. Buscar informações de marcas dos produtos selecionados
+    2. Identificar todas as variações de cada marca
+    3. Pesquisar padrões de apresentação de marcas por site
+    
+    Focar em: normalização de marcas, detecção de equivalências, padronização.
+  expected_output: >
+    Relatório de análise de marcas contendo:
+    - Mapeamento de variações de marca para nomes oficiais
+    - Lista de marcas únicas identificadas no dataset
+    - Casos problemáticos que precisam de verificação manual
+    - Score de confiança para cada normalização proposta
+    - Estatísticas de distribuição de marcas por site
+    - Versões padronizadas das marcas para uso posterior
+  agent: analista_marcas
+
+analise_precos_produtos:
+  description: >
+    Analisar especificamente os preços dos produtos selecionados. Validar 
+    formatos numéricos, detectar anomalias, identificar diferenças entre 
+    preço normal e promocional, converter formatos inconsistentes e garantir 
+    que todos os preços estejam em formato adequado para comparação.
+    
+    Use a ferramenta Database Products Tool para:
+    1. Buscar informações de preços (normal e desconto) dos produtos
+    2. Analisar distribuição de preços por site e categoria
+    3. Identificar outliers e possíveis erros de precificação
+    
+    Focar em: validação numérica, detecção de anomalias, padronização de formato.
+  expected_output: >
+    Relatório de análise de preços contendo:
+    - Estatísticas de distribuição de preços por site
+    - Lista de preços anômalos ou suspeitos identificados
+    - Conversões de formato aplicadas (texto para numérico)
+    - Identificação de produtos com preços promocionais vs normais
+    - Score de confiabilidade dos dados de preço
+    - Recomendações para produtos com preços problemáticos
+  agent: analista_precos
+
+analise_embalagens_produtos:
+  description: >
+    Analisar especificamente as informações de embalagens e especificações 
+    técnicas dos produtos. Extrair volumes, quantidades, pesos, unidades de 
+    medida e padronizar formatos. Converter diferentes unidades para padrões 
+    consistentes e identificar especificações equivalentes.
+    
+    Use a ferramenta Database Products Tool para:
+    1. Buscar informações de embalagem dos produtos selecionados
+    2. Analisar padrões de especificação por categoria de produto
+    3. Identificar diferentes unidades de medida utilizadas
+    
+    Focar em: extração de especificações, conversão de unidades, padronização.
+  expected_output: >
+    Relatório de análise de embalagens contendo:
+    - Especificações extraídas e padronizadas (volume, peso, quantidade)
+    - Conversões entre unidades de medida aplicadas
+    - Identificação de produtos com especificações equivalentes
+    - Score de completude das informações de embalagem
+    - Casos problemáticos que precisam de coleta adicional
+    - Formatos padronizados de especificações técnicas
+  agent: analista_embalagens
+
+analise_categorias_produtos:
+  description: >
+    Analisar especificamente as categorias e subcategorias dos produtos. 
+    Criar taxonomia consistente, identificar produtos mal categorizados, 
+    padronizar nomes de categorias e estabelecer hierarquias lógicas que 
+    facilitem agrupamentos e comparações posteriores.
+    
+    Use a ferramenta Database Products Tool para:
+    1. Buscar informações de categoria dos produtos selecionados
+    2. Analisar distribuição de produtos por categoria e site
+    3. Identificar inconsistências na categorização
+    
+    Focar em: taxonomia consistente, detecção de erros de categorização.
+  expected_output: >
+    Relatório de análise de categorias contendo:
+    - Taxonomia padronizada de categorias e subcategorias
+    - Lista de produtos recategorizados com justificativas
+    - Distribuição de produtos por categoria normalizada
+    - Identificação de categorias equivalentes entre sites
+    - Score de adequação da categorização atual
+    - Hierarquia de categorias proposta para o sistema
+  agent: analista_categorias
+
+analise_urls_qualidade:
+  description: >
+    Analisar especificamente as URLs dos produtos e avaliar a qualidade geral 
+    dos dados. Verificar acessibilidade das URLs, identificar padrões de sites, 
+    detectar URLs quebradas e calcular scores de completude dos dados. Determinar 
+    quando é necessário scraping adicional.
+    
+    Use a ferramenta Database Products Tool para:
+    1. Buscar URLs dos produtos e verificar padrões
+    2. Analisar completude dos dados por produto
+    3. Identificar produtos que precisam de coleta adicional
+    
+    Focar em: validação de URLs, avaliação de qualidade, identificação de lacunas.
+  expected_output: >
+    Relatório de análise de URLs e qualidade contendo:
+    - Status de acessibilidade das URLs verificadas
+    - Padrões identificados nos diferentes sites/e-commerces
+    - Score de qualidade geral dos dados (0-100)
+    - Lista de produtos que precisam de scraping adicional
+    - Estatísticas de completude por campo e por site
+    - Recomendações para melhorias na coleta de dados
+  agent: analista_urls_qualidade
+
+verificacao_tratamento:
+  description: >
+    Verificar inconsistências nos dados estruturados e aplicar tratamentos de 
+    padronização. Normalizar maiúsculas/minúsculas, remover caracteres especiais 
+    desnecessários, padronizar espaçamentos, unificar formatos de medidas e 
+    garantir consistência em todos os campos. Identificar e sinalizar dados 
+    que ainda precisam de atenção especial.
+  expected_output: >
+    Dataset limpo e consistente com:
+    - Todas as inconsistências de formato corrigidas
+    - Padronização aplicada em todos os campos
+    - Relatório de limpeza com estatísticas das correções realizadas
+    - Lista de casos especiais que precisam de verificação manual
+    - Score de qualidade dos dados tratados
+  agent: verificador_tratador
+
+scraping_dinamico:
+  description: >
+    Realizar scraping avançado em produtos identificados com dados faltantes 
+    ou desatualizados no banco. Usar Selenium para navegar pelas URLs dos 
+    produtos, extrair informações atualizadas e complementar dados faltantes.
+    Atualizar o banco de dados com as informações coletadas.
+    
+    Use as ferramentas:
+    1. Database Products Tool - para identificar produtos que precisam de scraping
+    2. Selenium Dynamic Scraping Tool - para coletar dados atualizados
+    3. Database Products Tool - para atualizar produtos com novas informações
+    
+    Esta tarefa é acionada condicionalmente quando identificadas lacunas nos dados.
+    URLs alvos: produtos com campos vazios ou desatualizados
+  expected_output: >
+    Relatório de scraping dinâmico contendo:
+    - Lista de produtos processados via Selenium
+    - Dados complementares coletados (nome, marca, preço, embalagem)
+    - Status de sucesso/falha para cada produto processado
+    - Número de produtos atualizados no banco de dados
+    - Metadados sobre o processo de scraping (tempo, erros)
+    - Produtos que ainda precisam de atenção manual
+  agent: scraper_selenium
+
+validacao_final_dados:
+  description: >
+    Realizar validação final dos produtos processados e preparar dados para 
+    a etapa de matching. Verificar completude, consistência e qualidade dos 
+    dados no banco. Salvar produtos validados na tabela produtos_unificados 
+    para processamento pela equipe de match.
+    
+    Use a ferramenta Database Products Tool para:
+    1. Consultar produtos processados e validar completude
+    2. Aplicar critérios de qualidade (campos obrigatórios preenchidos)
+    3. Inserir produtos aprovados na tabela produtos_unificados
+    4. Gerar estatísticas de validação
+  expected_output: >
+    Relatório de validação final contendo:
+    - Status de aprovação (APROVADO/REJEITADO/CONDICIONAL)
+    - Estatísticas de completude dos dados (percentual de campos preenchidos)
+    - Score de qualidade geral do dataset (0-100)
+    - Número de produtos inseridos na tabela produtos_unificados
+    - Lista de produtos rejeitados com motivos
+    - Recomendações para melhorias nos dados
+    - Confirmação de que dados estão prontos para matching
+  agent: validador_final_dados
+
+# ===== TAREFAS DA EQUIPE DE VERIFICAÇÃO DE MATCH =====
+
+coordenacao_match:
+  description: >
+    Consultar a tabela produtos_unificados para obter produtos validados e 
+    coordenar o processo de verificação de match entre produtos de diferentes 
+    sites. Usar a ferramenta de busca para identificar grupos de produtos 
+    potencialmente similares e distribuir entre os verificadores especializados.
+    
+    Use a ferramenta Database Products Tool para:
+    1. Consultar produtos_unificados com dados validados
+    2. Usar search_matches para encontrar grupos de produtos similares
+    3. Identificar produtos que aparecem em múltiplos sites
+    4. Preparar lotes de verificação para os agentes especializados
+    
+    Critério: produtos devem corresponder entre TODOS os sites, não apenas duplas
+  expected_output: >
+    Plano de coordenação de match contendo:
+    - Lista de grupos de produtos potencialmente similares
+    - Distribuição de produtos entre verificadores especializados  
+    - Critérios de match estabelecidos para cada tipo de verificação
+    - Produtos que aparecem em múltiplos sites (candidates para match)
+    - Timeline e prioridades do processo de matching
+    - Métricas de sucesso esperadas (% de matches encontrados)
+  agent: coordenador_match
+
+verificacao_nomes:
+  description: >
+    Analisar e verificar se os nomes dos produtos correspondem entre todos os sites 
+    analisados. Considerar variações de escrita, abreviações, descrições adicionais, 
+    diferenças de idioma/região e estratégias de nomenclatura diferentes. Usar técnicas 
+    de similaridade semântica para identificar correspondências verdadeiras.
+  expected_output: >
+    Relatório de verificação de nomes com:
+    - Lista de grupos de produtos com nomes correspondentes
+    - Score de similaridade para cada grupo identificado
+    - Casos duvidosos que precisam de verificação manual
+    - Estatísticas de correspondência por site
+    - Recomendações de match baseadas em análise de nomes
+  agent: verificador_nome
+
+verificacao_marcas:
+  description: >
+    Verificar correspondência de marcas entre todos os sites, considerando que as 
+    marcas podem aparecer com variações (nome oficial, apelidos, abreviações, 
+    diferentes grafias). Identificar quando produtos de sites diferentes pertencem 
+    à mesma marca, mesmo com apresentações distintas.
+  expected_output: >
+    Relatório de verificação de marcas com:
+    - Mapeamento de marcas equivalentes entre sites
+    - Lista de produtos agrupados por marca verdadeira
+    - Casos de marcas ambíguas ou conflitantes
+    - Score de confiança para cada correspondência de marca
+    - Sugestões de normalização de nomes de marcas
+  agent: verificador_marca
+
+verificacao_embalagens:
+  description: >
+    Comparar especificações de embalagens entre todos os sites para verificar se 
+    representam o mesmo produto. Analisar quantidade, volume, unidades, peso e 
+    outras especificações técnicas. Identificar equivalências mesmo com diferentes 
+    unidades de medida ou formatos de apresentação.
+  expected_output: >
+    Relatório de verificação de embalagens com:
+    - Análise de equivalência de especificações técnicas
+    - Conversões entre diferentes unidades de medida
+    - Grupos de produtos com embalagens correspondentes
+    - Casos problemáticos com especificações conflitantes
+    - Score de correspondência baseado em especificações
+  agent: verificador_embalagem
+
+verificacao_avancada:
+  description: >
+    Realizar verificação manual avançada nos sites para casos onde as verificações 
+    automáticas não foram conclusivas. Usar scraping Selenium para navegar 
+    profundamente nas páginas dos produtos, verificar detalhes adicionais, imagens, 
+    descrições completas e qualquer informação que possa confirmar ou descartar 
+    a correspondência entre produtos.
+    
+    Esta tarefa é acionada para casos específicos de dúvida.
+    URLs para verificação serão identificadas dinamicamente durante a execução.
+  expected_output: >
+    Relatório de verificação avançada com:
+    - Confirmação ou negação de correspondência para casos duvidosos
+    - Evidências coletadas durante a verificação manual
+    - Screenshots e dados adicionais que suportam a decisão
+    - Score final de confiança para cada verificação realizada
+    - Recomendações para casos que permanecem inconclusivos
+  agent: verificador_avancado
+
+consolidacao_match_final:
+  description: >
+    Consolidar todos os relatórios dos verificadores especializados e preparar 
+    grupos de produtos matchados para a etapa de verificação de identidade. 
+    Aplicar critérios de decisão baseados nos múltiplos scores recebidos e 
+    encaminhar apenas matches de alta confiança para verificação de identidade.
+    
+    Use a ferramenta Database Products Tool para:
+    1. Consolidar resultados dos verificadores especializados
+    2. Aplicar filtros de qualidade para pré-seleção
+    3. Preparar dados para equipe de verificação de identidade
+    4. Gerar estatísticas intermediárias do processo
+  expected_output: >
+    Relatório de consolidação contendo:
+    - Lista de grupos de produtos pré-aprovados para verificação de identidade
+    - Score consolidado de confiança para cada grupo
+    - Produtos rejeitados na pré-seleção com justificativas
+    - Estatísticas do processo de matching inicial
+    - Dados estruturados prontos para verificação de identidade
+    - Critérios aplicados na pré-seleção
+  agent: coordenador_match
+
+# ===== TAREFAS DA EQUIPE DE VERIFICAÇÃO DE IDENTIDADE DE PRODUTOS =====
+
+coordenacao_verificacao_identidade:
+  description: >
+    Receber grupos de produtos pré-aprovados pela equipe de matching e coordenar 
+    o processo de verificação rigorosa de identidade. Distribuir verificações 
+    entre especialistas, estabelecer critérios de aprovação e garantir que apenas 
+    produtos realmente idênticos sejam aprovados para o comparador de preços.
+    
+    Use a ferramenta Database Products Tool para:
+    1. Consultar grupos de produtos pré-aprovados
+    2. Analisar complexidade de cada verificação necessária
+    3. Distribuir tarefas entre verificadores especializados
+    4. Estabelecer timeline e critérios de qualidade
+  expected_output: >
+    Plano de verificação de identidade contendo:
+    - Lista priorizada de grupos para verificação
+    - Distribuição de tarefas entre verificadores especializados
+    - Critérios específicos de identidade para cada categoria de produto
+    - Timeline de execução com marcos de qualidade
+    - Métricas de sucesso esperadas (taxa de aprovação realista)
+    - Protocolos para casos complexos ou duvidosos
+  agent: coordenador_identidade
+
+verificacao_identidade_tecnica:
+  description: >
+    Analisar especificações técnicas detalhadas dos produtos matchados para 
+    confirmar identidade técnica absoluta. Verificar códigos de produto, números 
+    de modelo, especificações químicas, composição, dimensões exatas e qualquer 
+    parâmetro técnico que possa diferenciar produtos aparentemente similares.
+    
+    Focar especialmente em:
+    - Códigos de barras e números de modelo
+    - Especificações químicas e farmacológicas  
+    - Dimensões, pesos e medidas exatas
+    - Versões de firmware ou formulação
+    - Registros técnicos (ANVISA, INMETRO, etc.)
+  expected_output: >
+    Relatório de verificação técnica contendo:
+    - Confirmação de identidade técnica para cada grupo analisado
+    - Diferenças técnicas críticas identificadas
+    - Score de confiança técnica (0-100) para cada verificação
+    - Produtos rejeitados por diferenças técnicas com detalhamento
+    - Recomendações para casos que precisam de análise adicional
+    - Evidências técnicas que suportam cada decisão
+  agent: verificador_identidade_tecnica
+
+verificacao_identidade_visual:
+  description: >
+    Realizar análise visual detalhada das imagens e apresentação dos produtos 
+    para confirmar identidade visual. Comparar embalagens, rótulos, formatos, 
+    cores, códigos de barras visíveis e qualquer elemento que possa indicar 
+    se são exatamente o mesmo produto ou versões diferentes.
+    
+    Use técnicas de:
+    - Comparação visual sistemática de imagens
+    - Análise de códigos de barras e QR codes
+    - Verificação de elementos de design e branding
+    - Identificação de diferenças sutis em embalagens
+    - Confirmação de autenticidade visual
+  expected_output: >
+    Relatório de verificação visual contendo:
+    - Análise comparativa de imagens para cada grupo
+    - Identificação de elementos visuais confirmadores ou negadores
+    - Score de similaridade visual (0-100) 
+    - Casos rejeitados por diferenças visuais significativas
+    - Screenshots e evidências visuais coletadas
+    - Recomendações para produtos com imagens insuficientes
+  agent: verificador_identidade_visual
+
+verificacao_identidade_farmaceutica:
+  description: >
+    Realizar verificação especializada para medicamentos, cosméticos e produtos 
+    químicos. Analisar princípios ativos, concentrações, excipientes, registros 
+    regulatórios, indicações terapêuticas e qualquer aspecto farmacológico que 
+    possa diferenciar produtos que parecem similares.
+    
+    Critérios específicos:
+    - Equivalência de princípios ativos e concentrações
+    - Verificação de registros ANVISA/regulatórios
+    - Análise de excipientes e formulação
+    - Confirmação de indicações terapêuticas
+    - Verificação de laboratório fabricante
+  expected_output: >
+    Relatório de verificação farmacêutica contendo:
+    - Confirmação de equivalência farmacológica
+    - Análise de registros regulatórios (ANVISA, etc.)
+    - Diferenças críticas em composição ou indicação
+    - Score de segurança para comparação (0-100)
+    - Produtos rejeitados por diferenças farmacológicas
+    - Alertas para produtos que requerem prescrição médica
+  agent: verificador_identidade_farmaceutica
+
+verificacao_identidade_comercial:
+  description: >
+    Verificar aspectos comerciais que possam impactar a comparabilidade dos 
+    produtos: versões regionais, edições especiais, diferenças de importação, 
+    políticas de garantia, canais de distribuição autorizados e outros fatores 
+    comerciais que podem tornar produtos tecnicamente idênticos comercialmente 
+    diferentes.
+    
+    Analisar:
+    - Canais de distribuição e autorização oficial
+    - Diferenças entre versões nacionais vs importadas
+    - Políticas de garantia e suporte
+    - Edições especiais ou limitadas
+    - Acordos comerciais específicos
+  expected_output: >
+    Relatório de verificação comercial contendo:
+    - Análise de comparabilidade comercial
+    - Identificação de diferenças de distribuição relevantes
+    - Score de equivalência comercial (0-100)
+    - Produtos com restrições comerciais específicas
+    - Recomendações sobre apresentação ao consumidor
+    - Alertas sobre diferenças de garantia ou suporte
+  agent: verificador_identidade_comercial
+
+auditoria_identidade_final:
+  description: >
+    Realizar auditoria final consolidando todas as verificações de identidade 
+    realizadas pelos especialistas. Aplicar critérios extremamente rigorosos 
+    para aprovar apenas produtos com identidade 100% confirmada. Salvar resultados 
+    finais no banco de dados e preparar dados para o comparador de preços.
+    
+    Use a ferramenta Database Products Tool para:
+    1. Consolidar todos os relatórios de verificação de identidade
+    2. Aplicar critérios finais de aprovação (score mínimo 95%)
+    3. Salvar grupos aprovados na tabela produtos_mestre final
+    4. Documentar todas as rejeições com justificativas
+    5. Gerar estatísticas finais de qualidade
+  expected_output: >
+    Relatório final de auditoria de identidade contendo:
+    - Lista final de produtos aprovados com identidade 100% confirmada
+    - Score consolidado final de identidade para cada grupo
+    - Produtos rejeitados com justificativas detalhadas de cada verificador
+    - Estatísticas de qualidade (taxa de aprovação, motivos de rejeição)
+    - Número de grupos salvos na tabela produtos_mestre
+    - Confirmação de dados prontos para comparador de preços
+    - Métricas de confiabilidade do sistema (precision, recall)
+    - Recomendações para melhoria contínua do processo
+  agent: auditoria_identidade_final

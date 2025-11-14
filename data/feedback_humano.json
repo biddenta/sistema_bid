@@ -1,0 +1,46 @@
+{
+  "matches_validados": {
+    "1": {
+      "id_match": 1,
+      "valido": true,
+      "observacao": "resina = composite = fotopolimerizavel",
+      "timestamp": "2025-10-31T13:54:34.394877",
+      "usuario": "teste_automatico"
+    },
+    "2": {
+      "id_match": 2,
+      "valido": true,
+      "observacao": "anestesico e lidocaina sao iguais",
+      "timestamp": "2025-10-31T13:54:34.394877",
+      "usuario": "teste_automatico"
+    },
+    "3": {
+      "id_match": 3,
+      "valido": true,
+      "observacao": "broca = fresa",
+      "timestamp": "2025-10-31T13:54:34.394877",
+      "usuario": "teste_automatico"
+    },
+    "4": {
+      "id_match": 4,
+      "valido": false,
+      "observacao": "ortodontia != endodontia",
+      "timestamp": "2025-10-31T13:54:34.394877",
+      "usuario": "teste_automatico"
+    },
+    "5": {
+      "id_match": 5,
+      "valido": false,
+      "observacao": "resina diferente de anestesico",
+      "timestamp": "2025-10-31T13:54:34.394877",
+      "usuario": "teste_automatico"
+    },
+    "6": {
+      "id_match": 6,
+      "valido": false,
+      "observacao": "protese != implante",
+      "timestamp": "2025-10-31T13:54:34.394877",
+      "usuario": "teste_automatico"
+    }
+  }
+}
