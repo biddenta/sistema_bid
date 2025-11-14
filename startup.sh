@@ -30,12 +30,12 @@ ls -la api/
 
 # Verificar se o banco de dados existe
 if [ ! -f "match_crew.db" ]; then
-    echo "⚠️  Banco de dados não encontrado. Aplicação pode falhar."
+    echo "Banco de dados não encontrado. Aplicação pode falhar."
 fi
 
 # Testar importação do módulo
 echo "Testando importação do módulo api..."
-python -c "import api.app; print('✅ Módulo api.app importado com sucesso')" || {
+python -c "import api.app; print('Módulo api.app importado com sucesso')" || {
     echo "❌ ERRO ao importar api.app"
     echo "Tentando corrigir..."
     pip install -r requirements.txt --no-cache-dir
