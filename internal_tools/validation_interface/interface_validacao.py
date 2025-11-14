@@ -1100,7 +1100,7 @@ def pagina_executar_matching():
                 try:
                     sistema = MatchingComFeedback(
                         db_mestre="match_crew.db",
-                        db_tratados="legacy/data/produtos_tratados.db"
+                        db_tratados="match_crew.db"
                     )
                     st.success("✅ Sistema inicializado!")
                 except Exception as e:

@@ -71,14 +71,8 @@ def comparar_bancos():
     print(f"\n📦 Banco principal (match_crew.db):")
     print(f"   Total de grupos: {total_main:,}")
     
-    # Banco legacy
-    conn_legacy = sqlite3.connect("legacy/data/produtos_mestre.db")
-    cursor_legacy = conn_legacy.cursor()
-    
-    cursor_legacy.execute("SELECT COUNT(DISTINCT id_match) FROM produtos_mestre")
-    total_legacy = cursor_legacy.fetchone()[0]
-    
-    print(f"\n📦 Banco legacy (legacy/data/produtos_mestre.db):")
+    # Nota: Banco legacy foi removido, usando apenas match_crew.db
+    print(f"\n📦 Banco único (match_crew.db) contém todos os dados")
     print(f"   Total de grupos: {total_legacy:,}")
     
     diferenca = total_legacy - total_main
@@ -144,7 +138,7 @@ def analisar_cobertura_produtos():
     print(f"\n📊 URLs únicas nos matches manuais: {len(urls_manuais):,}")
     
     # Produtos no banco tratados
-    conn_tratados = sqlite3.connect("legacy/data/produtos_tratados.db")
+    conn_tratados = sqlite3.connect("match_crew.db")
     cursor_tratados = conn_tratados.cursor()
     
     # Lista de tabelas (uma por site)

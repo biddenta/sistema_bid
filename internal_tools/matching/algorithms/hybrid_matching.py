@@ -62,13 +62,10 @@ class MatchingHibridoSuperOtimizado:
             self.db_tratados = str(db_tratados)
             self.db_mestre = str(db_mestre)
         else:
-            # Usar path relativo ao legacy (compatibilidade)
-            legacy_dir = Path(__file__).parent.parent.parent.parent / "legacy"
-            self.db_tratados = str(legacy_dir / "data" / "produtos_tratados.db")
-            self.db_mestre = str(legacy_dir / "data" / "produtos_mestre.db")
-            
-            # Criar diretório se não existir
-            (legacy_dir / "data").mkdir(exist_ok=True, parents=True)
+            # Usar banco único na raiz do projeto
+            root_dir = Path(__file__).parent.parent.parent.parent
+            self.db_tratados = str(root_dir / "match_crew.db")
+            self.db_mestre = str(root_dir / "match_crew.db")
         
         # Armazena aplicador de feedback (se fornecido)
         self._aplicador_feedback = aplicador_feedback

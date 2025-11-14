@@ -132,7 +132,7 @@ def testar_matching_sem_feedback():
     
     sistema = MatchingComFeedback(
         db_mestre="match_crew.db",
-        db_tratados="legacy/data/produtos_tratados.db"
+        db_tratados="match_crew.db"
     )
     
     resultado = sistema.executar_matching_completo(aplicar_feedback=False)
@@ -157,7 +157,7 @@ def testar_matching_com_feedback():
     
     sistema = MatchingComFeedback(
         db_mestre="match_crew.db",
-        db_tratados="legacy/data/produtos_tratados.db"
+        db_tratados="match_crew.db"
     )
     
     resultado = sistema.executar_matching_completo(aplicar_feedback=True)

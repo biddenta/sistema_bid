@@ -36,7 +36,7 @@ def verificar_estado_inicial():
     conn_main.close()
     
     # Banco tratados
-    conn_tratados = sqlite3.connect('legacy/data/produtos_tratados.db')
+    conn_tratados = sqlite3.connect('match_crew.db')
     cursor_tratados = conn_tratados.cursor()
     
     # Contar produtos em todas as tabelas
@@ -52,7 +52,7 @@ def verificar_estado_inicial():
         count = cursor_tratados.fetchone()[0]
         total_tratados += count
     
-    print(f"\n📦 Banco Tratados (legacy/data/produtos_tratados.db):")
+    print(f"\n📦 Banco de Dados (match_crew.db):")
     print(f"   • Produtos tratados: {total_tratados:,}")
     print(f"   • Tabelas: {len(tables)}")
     
@@ -75,11 +75,11 @@ def executar_matching_no_banco_principal():
     
     # Criar instância apontando para banco principal
     print("\n⚙️  Configurando matcher...")
-    print("   • db_tratados: legacy/data/produtos_tratados.db")
+    print("   • db: match_crew.db")
     print("   • db_mestre: match_crew.db (BANCO PRINCIPAL)")
     
     matcher = MatchingHibridoSuperOtimizado(
-        db_tratados="legacy/data/produtos_tratados.db",
+        db_tratados="match_crew.db",
         db_mestre="match_crew.db"  # <-- Salvar no banco principal!
     )
     

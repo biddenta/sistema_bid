@@ -9,10 +9,7 @@ class Settings(BaseSettings):
     DEBUG: bool = True
     
     # Database Settings
-    DATABASE_URL: str = "sqlite:///./data/match_crew.db"
-    
-    # Legacy Database (para migração)
-    LEGACY_DATABASE_URL: str = "sqlite:///./legacy/data/produtos_tratados.db"
+    DATABASE_URL: str = "sqlite:///./match_crew.db"
     
     # Security
     SECRET_KEY: str = "your-secret-key-change-in-production"

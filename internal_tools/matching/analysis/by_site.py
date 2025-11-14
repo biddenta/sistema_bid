@@ -15,7 +15,7 @@ import sqlite3
 from collections import defaultdict
 
 
-def analisar_matches_por_site(db_path="legacy/data/produtos_mestre.db"):
+def analisar_matches_por_site(db_path="match_crew.db"):
     """Analisa distribuição de matches por site"""
     
     print("="*80)
@@ -142,7 +142,7 @@ def estatisticas_gerais(resultados):
     print(f"⚠️  Pior cobertura: {pior_site[0].upper()} ({pior_site[1]['percentual']:.1f}%)")
 
 
-def analisar_matches_cross_site(db_path="legacy/data/produtos_mestre.db"):
+def analisar_matches_cross_site(db_path="match_crew.db"):
     """Analisa matches entre sites específicos"""
     
     print("\n" + "="*80)
@@ -190,7 +190,7 @@ def analisar_matches_cross_site(db_path="legacy/data/produtos_mestre.db"):
     print("└" + "─"*60 + "┘")
 
 
-def analisar_por_categoria_e_site(db_path="legacy/data/produtos_mestre.db"):
+def analisar_por_categoria_e_site(db_path="match_crew.db"):
     """Analisa cobertura por categoria em cada site"""
     
     print("\n" + "="*80)
@@ -233,7 +233,7 @@ def analisar_por_categoria_e_site(db_path="legacy/data/produtos_mestre.db"):
     conn.close()
 
 
-def analisar_qualidade_por_site(db_path="legacy/data/produtos_mestre.db"):
+def analisar_qualidade_por_site(db_path="match_crew.db"):
     """Analisa qualidade (score) dos matches por site"""
     
     print("\n" + "="*80)
@@ -295,7 +295,7 @@ def analisar_qualidade_por_site(db_path="legacy/data/produtos_mestre.db"):
 def main():
     """Função principal"""
     
-    db_path = "legacy/data/produtos_mestre.db"
+    db_path = "match_crew.db"
     
     if not Path(db_path).exists():
         print(f"❌ Banco de dados não encontrado: {db_path}")

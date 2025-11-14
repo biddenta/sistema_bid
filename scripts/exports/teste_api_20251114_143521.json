@@ -1,0 +1,115 @@
+{
+  "data_teste": "2025-11-14T14:35:21.947501",
+  "base_url": "http://localhost:8000",
+  "total_testes": 21,
+  "testes_passados": 21,
+  "testes_falhados": 0,
+  "taxa_sucesso": "100.0%",
+  "resultados": [
+    {
+      "teste": "Root endpoint",
+      "status": "PASSOU",
+      "tempo": "2.06s"
+    },
+    {
+      "teste": "Health check",
+      "status": "PASSOU",
+      "tempo": "2.06s"
+    },
+    {
+      "teste": "Status detalhado",
+      "status": "PASSOU",
+      "tempo": "2.05s"
+    },
+    {
+      "teste": "Listar produtos (primeira página)",
+      "status": "PASSOU",
+      "tempo": "2.03s"
+    },
+    {
+      "teste": "Buscar produto por ID",
+      "status": "PASSOU",
+      "tempo": "2.01s"
+    },
+    {
+      "teste": "Listar sites disponíveis",
+      "status": "PASSOU",
+      "tempo": "2.04s"
+    },
+    {
+      "teste": "Listar categorias disponíveis",
+      "status": "PASSOU",
+      "tempo": "2.01s"
+    },
+    {
+      "teste": "Listar marcas disponíveis",
+      "status": "PASSOU",
+      "tempo": "2.06s"
+    },
+    {
+      "teste": "Buscar produtos por site (filtro)",
+      "status": "PASSOU",
+      "tempo": "2.06s"
+    },
+    {
+      "teste": "Buscar produtos por categoria (filtro)",
+      "status": "PASSOU",
+      "tempo": "2.06s"
+    },
+    {
+      "teste": "Listar produtos mestre (primeira página)",
+      "status": "PASSOU",
+      "tempo": "2.03s"
+    },
+    {
+      "teste": "Buscar produto mestre por ID",
+      "status": "PASSOU",
+      "tempo": "2.06s"
+    },
+    {
+      "teste": "Estatísticas de produtos mestre",
+      "status": "PASSOU",
+      "tempo": "2.04s"
+    },
+    {
+      "teste": "Buscar produtos mestre por categoria (filtro)",
+      "status": "PASSOU",
+      "tempo": "2.06s"
+    },
+    {
+      "teste": "Filtrar por mínimo de 3 sites",
+      "status": "PASSOU",
+      "tempo": "2.09s"
+    },
+    {
+      "teste": "Estatísticas do matching engine",
+      "status": "PASSOU",
+      "tempo": "2.04s"
+    },
+    {
+      "teste": "Listar feedbacks",
+      "status": "PASSOU",
+      "tempo": "2.07s"
+    },
+    {
+      "teste": "Estatísticas de feedbacks",
+      "status": "PASSOU",
+      "tempo": "2.05s"
+    },
+    {
+      "teste": "Estatísticas do data processing",
+      "status": "PASSOU",
+      "tempo": "2.08s"
+    },
+    {
+      "teste": "Listar sites disponíveis para scraping",
+      "status": "PASSOU",
+      "tempo": "2.05s"
+    },
+    {
+      "teste": "Listar jobs de scraping",
+      "status": "PASSOU",
+      "tempo": "2.02s"
+    }
+  ]
+}

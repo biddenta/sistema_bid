@@ -14,11 +14,15 @@ load_dotenv(dotenv_path=env_path)
 if not os.getenv('OPENAI_API_KEY'):
     logging.warning("⚠️  OPENAI_API_KEY não encontrada no .env")
 
-# Adicionar path do legacy
-LEGACY_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'legacy', 'src')
-sys.path.insert(0, LEGACY_PATH)
+# Adicionar path do crew_ai
+CREW_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'internal_tools', 'crew_ai')
+sys.path.insert(0, CREW_PATH)
 
-from tinder_crew.crew import TinderCrew
+try:
+    from crew import TinderCrew
+except ImportError:
+    logging.warning("⚠️  TinderCrew não disponível - CrewAI desabilitado")
+    TinderCrew = None
 from sqlalchemy.orm import Session
 from ..models import Produto
 

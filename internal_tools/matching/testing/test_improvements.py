@@ -16,13 +16,13 @@ import shutil
 
 def backup_banco_atual():
     """Cria backup do banco atual antes do teste"""
-    db_path = Path("legacy/data/produtos_mestre.db")
+    db_path = Path("match_crew.db")
     
     if not db_path.exists():
-        print("⚠️  Banco produtos_mestre.db não existe ainda")
+        print("⚠️  Banco match_crew.db não existe ainda")
         return None
     
-    backup_path = Path(f"legacy/data/produtos_mestre_backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}.db")
+    backup_path = Path(f"match_crew_backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}.db")
     
     shutil.copy(db_path, backup_path)
     print(f"✅ Backup criado: {backup_path}")
@@ -32,7 +32,7 @@ def backup_banco_atual():
 
 def analisar_banco_antes():
     """Analisa estatísticas do banco ANTES das melhorias"""
-    db_path = Path("legacy/data/produtos_mestre.db")
+    db_path = Path("match_crew.db")
     
     if not db_path.exists():
         print("⚠️  Banco não existe - será criado na primeira execução")

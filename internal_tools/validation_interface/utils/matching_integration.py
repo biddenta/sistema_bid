@@ -294,7 +294,7 @@ def testar_integracao_completa():
     # Cria instância do sistema integrado
     sistema = MatchingComFeedback(
         db_mestre="match_crew.db",
-        db_tratados="legacy/data/produtos_tratados.db"
+        db_tratados="match_crew.db"
     )
     
     # Gera relatório inicial
